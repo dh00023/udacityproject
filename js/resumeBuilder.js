@@ -60,13 +60,13 @@ var work = {
 		"title": "udacity",
 		"location": "America",
 		"dates": "2017-3",
-		"description": "asdfasdfasdfasdfasdf"
+		"description": "Master the skills required to become a Front-End Web Developer,and start building beautiful, responsive websites optimized for mobile and desktop performance.Learn the fundamentals of how the web works and gain a working knowledge of the three foundational languages that power each and every website: HTML, CSS and JavaScript."
 	}, {
-		"employer": "bacl-end",
+		"employer": "fullstack",
 		"title": "udacity",
 		"location": "America",
 		"dates": "2017-3",
-		"description": "asdfasdfasdfasdfasdf"
+		"description": "This program will prepare you for a job as a Full Stack Web Developer, and teach you to build complex server-side web applications that use powerful relational databases to persistently store data.You’ll learn to build applications that can support any front-end, and scale to support hundreds of thousands of users"
 	}]
 }
 var projects={
@@ -104,4 +104,11 @@ for(job in work.jobs){
 	var formattedEmployerTitle=formattedEmployer+formattedTitle;
 
 	$(".work-entry:last").append(formattedEmployerTitle);
+
+	var formattedDates=HTMLworkDates.replace("%data%",work.jobs[job].dates);
+	$(".work-entry:last").append(formattedDates);
+
+	var formattedDescription=HTMLworkDescription.replace("%data%",work.jobs[job].description);
+	$(".work-entry:last").append(formattedDescription);
+
 }
