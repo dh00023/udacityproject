@@ -55,20 +55,38 @@ var education={
 	}]
 }
 var work = {
-	"jobs": [{
-		"employer": "front-end",
-		"title": "udacity",
-		"location": "America",
-		"dates": "2017-3",
-		"description": "Master the skills required to become a Front-End Web Developer,and start building beautiful, responsive websites optimized for mobile and desktop performance.Learn the fundamentals of how the web works and gain a working knowledge of the three foundational languages that power each and every website: HTML, CSS and JavaScript."
-	}, {
-		"employer": "fullstack",
-		"title": "udacity",
-		"location": "America",
-		"dates": "2017-3",
-		"description": "This program will prepare you for a job as a Full Stack Web Developer, and teach you to build complex server-side web applications that use powerful relational databases to persistently store data.You’ll learn to build applications that can support any front-end, and scale to support hundreds of thousands of users"
-	}]
-}
+  "jobs": [
+    {
+      "employer": "Udacity",
+      "title": "Course Developer",
+      "location": "Mountain View, CA",
+      "dates": "Feb 2014 - Current",
+      "description": "Who moved my cheese cheesy feet cauliflower cheese. Queso taleggio when the cheese comes out everybody's happy airedale ricotta cheese and wine paneer camembert de normandie. Swiss mozzarella cheese slices feta fromage frais airedale swiss cheesecake. Hard cheese blue castello halloumi parmesan say cheese stinking bishop jarlsberg."
+    },
+    {
+      "employer": "LearnBIG",
+      "title": "Software Engineer",
+      "location": "Seattle, WA",
+      "dates": "May 2013 - Jan 2014",
+      "description": "Who moved my cheese cheesy feet cauliflower cheese. Queso taleggio when the cheese comes out everybody's happy airedale ricotta cheese and wine paneer camembert de normandie. Swiss mozzarella cheese slices feta fromage frais airedale swiss cheesecake. Hard cheese blue castello halloumi parmesan say cheese stinking bishop jarlsberg."
+    },
+    {
+      "employer": "LEAD Academy Charter High School",
+      "title": "Science Teacher",
+      "location": "Nashville, TN",
+      "dates": "Jul 2012 - May 2013",
+      "description": "Who moved my cheese cheesy feet cauliflower cheese. Queso taleggio when the cheese comes out everybody's happy airedale ricotta cheese and wine paneer camembert de normandie. Swiss mozzarella cheese slices feta fromage frais airedale swiss cheesecake. Hard cheese blue castello halloumi parmesan say cheese stinking bishop jarlsberg."
+    },
+    {
+      "employer": "Stratford High School",
+      "title": "Science Teacher",
+      "location": "Nashville, TN",
+      "dates": "Jun 2009 - Jun 2012",
+      "description": "Who moved my cheese cheesy feet cauliflower cheese. Queso taleggio when the cheese comes out everybody's happy airedale ricotta cheese and wine paneer camembert de normandie. Swiss mozzarella cheese slices feta fromage frais airedale swiss cheesecake. Hard cheese blue castello halloumi parmesan say cheese stinking bishop jarlsberg."
+    }
+  ]
+};
+
 var projects={
 	"projects": [{
 		"title": "make a website",
@@ -95,20 +113,45 @@ if (bio.skills.length > 0) {
 	formattedSkill=HTMLskills.replace("%data%",bio.skills[3]);
 	$("#skills").append(formattedSkill);
 }
-//for in
-for(job in work.jobs){
-	$("#workExperience").append(HTMLworkStart);
+//for in,function
+//javascript에서 for-in은 안좋음!사용하지말자.for문을사용해!
+function displaywork(){
+	for(job in work.jobs){
+		$("#workExperience").append(HTMLworkStart);
 
-	var formattedEmployer=HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
-	var formattedTitle=HTMLworkTitle.replace("%data%",work.jobs[job].title);
-	var formattedEmployerTitle=formattedEmployer+formattedTitle;
+		var formattedEmployer=HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
+		var formattedTitle=HTMLworkTitle.replace("%data%",work.jobs[job].title);
+		var formattedEmployerTitle=formattedEmployer+formattedTitle;
 
-	$(".work-entry:last").append(formattedEmployerTitle);
+		$(".work-entry:last").append(formattedEmployerTitle);
 
-	var formattedDates=HTMLworkDates.replace("%data%",work.jobs[job].dates);
-	$(".work-entry:last").append(formattedDates);
+		var formattedLocation=HTMLworkLocation.replace("%data%",work.jobs[job].location);
+		$(".work-entry:last").append(formattedLocation);
 
-	var formattedDescription=HTMLworkDescription.replace("%data%",work.jobs[job].description);
-	$(".work-entry:last").append(formattedDescription);
+		var formattedDates=HTMLworkDates.replace("%data%",work.jobs[job].dates);
+		$(".work-entry:last").append(formattedDates);
 
+		var formattedDescription=HTMLworkDescription.replace("%data%",work.jobs[job].description);
+		$(".work-entry:last").append(formattedDescription);
+	}
 }
+displaywork();
+/*
+//Click해서 x와 y좌표 출력하기.
+
+$(document).click(function(loc) {
+  // your code goes here
+  var x=loc.pageX;
+  var y=loc.pageY;
+
+  logClicks(x,y);
+});
+*/
+//button
+function inName(name){
+	name=name.trim().split(" ");
+	name[0]=name[0].slice(0,1).toUpperCase()+name[0].slice(1).toLowerCase();
+	name[1]=name[1].toUpperCase();
+	return name[0]+" "+name[1];
+}
+$('#main').append(internationalizeButton);
