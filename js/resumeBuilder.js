@@ -133,6 +133,8 @@ function displaywork(){
 
 		var formattedDescription=HTMLworkDescription.replace("%data%",work.jobs[job].description);
 		$(".work-entry:last").append(formattedDescription);
+
+
 	}
 }
 displaywork();
@@ -155,3 +157,20 @@ function inName(name){
 	return name[0]+" "+name[1];
 }
 $('#main').append(internationalizeButton);
+
+//function은 object이다. js의 대부분은 object이다.
+projects.display=function(){
+	for(project in projects.projects){
+		$("#projects").append(HTMLprojectStart);
+		
+		var formattedTitle=HTMLprojectTitle.replace("%data%",projects.projects[project].title);
+		$(".project-entry:last").append(formattedTitle);
+		var formattedDates=HTMLprojectDates.replace("%data%",projects.projects[project].dates);
+		$(".project-entry:last").append(formattedDates);
+		var formattedDescription=HTMLprojectDescription.replace("%data%",projects.projects[project].description);
+		$(".project-entry:last").append(formattedDescription);
+		var formattedImages=HTMLprojectImage.replace("%data%",projects.projects[project].images);
+		$(".project-entry:last").append(formattedImages);
+	}
+}
+projects.display();
