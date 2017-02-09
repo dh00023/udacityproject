@@ -8,8 +8,8 @@ console.log(awesomeThoughts);
 var funThoughts=awesomeThoughts.replace("AWESOME","FUN");
 $("#main").append(funThoughts);
 */
-var formatteName=HTMLheaderName.replace("%data%","Dahye Jeong");
-$("#header").append(formatteName);
+var formattedName=HTMLheaderName.replace("%data%","Dahye Jeong");
+$("#header").append(formattedName);
 var formattedRole = HTMLheaderRole.replace("%data%","front-end developer");
 $("#header").append(formattedRole);
 
@@ -82,9 +82,10 @@ var projects={
 		"images": "images/197x148.gif"
 	}]
 }
+//if
 if (bio.skills.length > 0) {
 	$("#header").append(HTMLskillsStart);
-	
+
 	var formattedSkill=HTMLskills.replace("%data%",bio.skills[0]);
 	$("#skills").append(formattedSkill);
 	formattedSkill=HTMLskills.replace("%data%",bio.skills[1]);
@@ -93,4 +94,14 @@ if (bio.skills.length > 0) {
 	$("#skills").append(formattedSkill);
 	formattedSkill=HTMLskills.replace("%data%",bio.skills[3]);
 	$("#skills").append(formattedSkill);
+}
+//for in
+for(job in work.jobs){
+	$("#workExperience").append(HTMLworkStart);
+
+	var formattedEmployer=HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
+	var formattedTitle=HTMLworkTitle.replace("%data%",work.jobs[job].title);
+	var formattedEmployerTitle=formattedEmployer+formattedTitle;
+
+	$(".work-entry:last").append(formattedEmployerTitle);
 }
