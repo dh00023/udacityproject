@@ -23,7 +23,7 @@ var bio={
 		"mobile" : "010-xxxx-xxxx",
 		"github" : "dh00023",
 		"twitter" : "asdfasdf",
-		"location" : "seoul"
+		"location" : "Seoul, SouthKorea"
 	},
 	"welcomeMessage": "Hello, Welcome to my page",
 	"biopic": "images/fry.jpg"
@@ -156,7 +156,6 @@ function inName(name){
 	name[1]=name[1].toUpperCase();
 	return name[0]+" "+name[1];
 }
-$('#main').append(internationalizeButton);
 
 //function은 object이다. js의 대부분은 object이다.
 projects.display=function(){
@@ -174,3 +173,5 @@ projects.display=function(){
 	}
 }
 projects.display();
+$('#main').append(internationalizeButton);
+$('#mapDiv').append(googleMap);
